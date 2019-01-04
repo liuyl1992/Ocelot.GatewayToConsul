@@ -1,0 +1,36 @@
+﻿{
+  "ReRoutes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "HHH",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/a/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ReRoutesCaseSensitive": false
+    },
+    {
+      "UseServiceDiscovery": true, // use Consul service discovery
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "BBB",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/b/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ReRoutesCaseSensitive": false // non case sensitive
+    }
+  ],
+  "GlobalConfiguration": {
+    // 使用Consul服务治理
+    "ServiceDiscoveryProvider": {
+      "Host": "192.168.74.161",
+      "Port": 8500,
+      "ConfigurationKey": "Config" //存储在Consul上的Key
+    }
+  }
+}
