@@ -1,26 +1,14 @@
 ﻿{
-  "ReRoutes": [
-    {
-      "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/{url}",
-      "DownstreamScheme": "http",
-      "ServiceName": "HHH",
-      "LoadBalancerOptions": {
-        "Type": "RoundRobin"
-      },
-      "UpstreamPathTemplate": "/a/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
-      "ReRoutesCaseSensitive": false
-    },
+  "ReRoutes": [    
     {
       "UseServiceDiscovery": true, // use Consul service discovery
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
-      "ServiceName": "BBB",
+      "ServiceName": "Acadsoc.User.Api",
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       },
-      "UpstreamPathTemplate": "/b/{url}",
+      "UpstreamPathTemplate": "/user/{url}",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "ReRoutesCaseSensitive": false // non case sensitive
     }
@@ -28,9 +16,9 @@
   "GlobalConfiguration": {
     // 使用Consul服务治理
     "ServiceDiscoveryProvider": {
-      "Host": "192.168.74.161",
+      "Host": "192.168.74.38",
       "Port": 8500,
-      "ConfigurationKey": "Config" //存储在Consul上的Key
+      "ConfigurationKey": "AcadsocGateway" //存储在Consul上的Key
     }
   }
 }
