@@ -4,7 +4,7 @@
       "UseServiceDiscovery": true, // use Consul service discovery
       "DownstreamPathTemplate": "/{url}",
       "DownstreamScheme": "http",
-      "ServiceName": "Acadsoc.User.Api",
+      "ServiceName": "userService",
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       },
@@ -16,7 +16,7 @@
   "GlobalConfiguration": {
     // 使用Consul服务治理
     "ServiceDiscoveryProvider": {
-      "Host": "192.168.74.38",
+      "Host": "192.168.88.66",
       "Port": 8500,
       "ConfigurationKey": "AcadsocGateway" //存储在Consul上的Key
     }
