@@ -18,7 +18,7 @@
     "ServiceDiscoveryProvider": {
       "Host": "192.168.88.66",
       "Port": 8500,
-      "ConfigurationKey": "AcadsocGateway" //存储在Consul上的Key
+      "ConfigurationKey": "Gateway" //存储在Consul上的Key
     }
   }
 }
